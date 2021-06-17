@@ -1,3 +1,8 @@
+/**
+ * @description sequelize 同步数据库
+ * @author JalonUniversal
+ */
+
 const seq = require('./seq');
 
 require('./model');

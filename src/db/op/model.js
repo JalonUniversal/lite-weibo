@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const seq = require('./seq');
+const seq = require('../seq');
 
 // 创建 User 模型 [名字默认加复数] 表名是 users
 const User = seq.define('user', {

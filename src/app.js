@@ -12,6 +12,7 @@ const { REDIS_CONF } = require('./conf/db')
 const { isProd } = require('./utils/env');
 
 // 路由
+const userAPIRouter = require('./routes/api/user');
 const errorViewRouter = require('./routes/view/error');
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -66,6 +67,7 @@ app.use(session({
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())
 app.use(userViewRouter.routes(), userViewRouter.allowedMethods())
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods())
 

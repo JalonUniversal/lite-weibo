@@ -17,7 +17,12 @@ const ErrorInfo = {
   jsonSchemaFailedInfo: {
     errno: 10003,
     message: '参数格式错误, 请重试'
-  }
+  },
+  // 登录失败
+  loginFailInfo: {
+    errno: 10004,
+    message: '登录失败, 用户名或密码错误'
+  },
 }
 
 module.exports = ErrorInfo;

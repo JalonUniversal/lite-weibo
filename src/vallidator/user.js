@@ -6,7 +6,7 @@
 const validate = require('./_validate');
 
 // 检验规则
-const schema = {
+const USER_SCHEMA = {
   type: 'object',
   properties: {
     userName: {
@@ -49,7 +49,7 @@ const schema = {
  */
 
 function userValidate(data = {}) {
-  return validate(SCHEMA, data);
+  return validate(USER_SCHEMA, data);
 }
 
 module.exports = userValidate

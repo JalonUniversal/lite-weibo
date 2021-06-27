@@ -13,6 +13,10 @@ const ErrorInfo = {
   registerFailInfo: {
     errno: 10002,
     message: '注册失败, 请重试'
+  },
+  jsonSchemaFailedInfo: {
+    errno: 10003,
+    message: '参数格式错误, 请重试'
   }
 }
 

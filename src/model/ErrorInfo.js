@@ -28,6 +28,11 @@ const ErrorInfo = {
     errno: 10005,
     message: '您尚未登录'
   },
+  // 删除用户失败
+  deleteUserFailInfo: {
+    errno: 100010,
+    message: '删除用户失败'
+  },
 }
 
 module.exports = ErrorInfo;

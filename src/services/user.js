@@ -17,7 +17,7 @@ async function getUserInfo(userName, password) {
   // if(password !== null) {
   //   Object.assign(whereOpt, { password });
   // }
-  if(password) {
+  if (password) {
     Object.assign(whereOpt, { password });
   }
 
@@ -27,7 +27,7 @@ async function getUserInfo(userName, password) {
     where: whereOpt,
   });
 
-  if(!result) return result;
+  if (!result) return result;
 
   // 格式化
   const formatRes = formatUser(result.dataValues);
@@ -42,7 +42,7 @@ async function getUserInfo(userName, password) {
  * @param {string} nickName 昵称
  */
 
-async function createUser({ userName, password, gender = 3, nickName = ''}) {
+async function createUser({ userName, password, gender = 3, nickName = '' }) {
   const result = await User.create({
     userName,
     password,
@@ -52,7 +52,23 @@ async function createUser({ userName, password, gender = 3, nickName = ''}) {
   return result.dataValues;
 }
 
+/**
+ * 删除用户
+ * @param {string} userName 用户名
+ */
+
+async function deleteUser(userName) {
+  const result = await User.destroy({
+    where: {
+      userName
+    }
+  });
+  // result 删除的行数
+  return result > 0;
+}
+
 module.exports = {
   getUserInfo,
   createUser,
+  deleteUser,
 }

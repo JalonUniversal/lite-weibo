@@ -113,7 +113,39 @@ async function changeInfo(ctx, { nickName, city, picture }) {
     // 返回
     return new ErrorModel(ErrorInfo.changeInfoFailInfo);
   }
+}
 
+/**
+ * 修改密码
+ * @param {string} userName 用户名
+ * @param {string} password 密码
+ * @param {string} newPassword 新密码
+ */
+async function changePassword(userName, password, newPassword) {
+  const result = await updateUser(
+    { 
+      newPassword: doCrypto(newPassword) 
+    },
+    {
+      userName,
+      password: doCrypto(password)
+    }
+  );
+  // 执行成功
+  if(result) {
+    return new SuccessModel();
+  }
+  // 失败
+  return new ErrorModel(ErrorInfo.changePasswordFailInfo);
+}
+
+/**
+ * 退出登录
+ * @param {Object} ctx 
+ */
+async function logout(ctx) {
+  delete ctx.session.userInfo;
+  return new SuccessModel();
 }
 
 module.exports = {
@@ -122,4 +154,6 @@ module.exports = {
   login,
   deleteCurUser,
   changeInfo,
+  changePassword,
+  logout,
 }

@@ -28,11 +28,21 @@ const ErrorInfo = {
     errno: 10005,
     message: '您尚未登录'
   },
+  // 上传文件过大
+  uploadFileSizeFailInfo: {
+    errno: 100007,
+    message: '上传文件尺寸过大'
+  },
+  // 修改基本信息失败
+  changeInfoFailInfo: {
+    errno: 100008,
+    message: '修改基本信息失败'
+  },
   // 删除用户失败
   deleteUserFailInfo: {
     errno: 100010,
     message: '删除用户失败'
-  },
+  }
 }
 
 module.exports = ErrorInfo;

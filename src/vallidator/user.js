@@ -30,6 +30,10 @@ const USER_SCHEMA = {
       maxLength: 255,
       minLength: 3
     },
+    picture: {
+      type: 'string',
+      maxLength: 255
+    },
     city: {
       type: 'string',
       maxLength: 255,

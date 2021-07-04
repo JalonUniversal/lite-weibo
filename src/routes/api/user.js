@@ -4,7 +4,15 @@
  */
 
 const router = require('koa-router')();
-const { isExist, register, login, deleteCurUser, changeInfo, changePassword, logout } = require('../../controller/user');
+const { 
+  isExist, 
+  register, 
+  login, 
+  deleteCurUser, 
+  changeInfo, 
+  changePassword, 
+  logout 
+} = require('../../controller/user');
 const userValidate = require('../../vallidator/user');
 const { genValidator } = require('../../middlewares/validator');
 const { isTest } = require('../../utils/env');

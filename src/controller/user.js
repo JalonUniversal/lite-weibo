@@ -109,10 +109,8 @@ async function changeInfo(ctx, { nickName, city, picture }) {
       picture
     });
     return new SuccessModel();
-  } else {
-    // 返回
-    return new ErrorModel(ErrorInfo.changeInfoFailInfo);
   }
+  return new ErrorModel(ErrorInfo.changeInfoFailInfo);
 }
 
 /**
@@ -123,8 +121,8 @@ async function changeInfo(ctx, { nickName, city, picture }) {
  */
 async function changePassword(userName, password, newPassword) {
   const result = await updateUser(
-    { 
-      newPassword: doCrypto(newPassword) 
+    {
+      newPassword: doCrypto(newPassword)
     },
     {
       userName,
@@ -132,7 +130,7 @@ async function changePassword(userName, password, newPassword) {
     }
   );
   // 执行成功
-  if(result) {
+  if (result) {
     return new SuccessModel();
   }
   // 失败

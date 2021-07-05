@@ -2,7 +2,7 @@
  * @description 首页 controller
  * @author JalonUniversal
  */
-
+const xss = require('xss');
 const ErrorInfo = require('../model/ErrorInfo');
 const { SuccessModel, ErrorModel } = require('../model/ResModel');
 const { createBlog } = require('../services/blog');
@@ -12,7 +12,11 @@ const { createBlog } = require('../services/blog');
  */
 async function create({ userId, content, image }) {
   try {
-    const blog = await createBlog({ userId, content, image });
+    const blog = await createBlog({ 
+      userId, 
+      content: xss(content), 
+      image 
+    });
     return new SuccessModel(blog);
   } catch(ex) {
     console.error(ex.message, ex.stack);

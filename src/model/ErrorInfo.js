@@ -47,7 +47,12 @@ const ErrorInfo = {
   deleteUserFailInfo: {
     errno: 100010,
     message: '删除用户失败'
-  }
+  },
+  // 创建博客失败
+  createBlogFailInfo: {
+    errno: 100011,
+    message: '创建博客失败'
+  },
 }
 
 module.exports = ErrorInfo;
